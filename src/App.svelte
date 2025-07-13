@@ -203,8 +203,15 @@
     background-color: #01212e;
     /* background-color: orange; */
     z-index: 999;
-    padding-top:15px;
+    padding-top:5px;
+    padding-bottom: 5px;
     padding-left:20px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 35px;
+    
+  }
+  .header-fixed a{
+    color:white;
   }
 
   @media (max-width: 768px) {
@@ -238,7 +245,7 @@
 <button class="hamburger" on:click={toggleSidebar}>☰</button>
 
 <div class="header-fixed">
-  <a href="#/"><img src="/yesvara-row.png" alt="Logo" class="logo" /></a>
+  <a href="#/"><strong>Deepscreen</strong></a>
 </div>
 
 <div class="layout">
@@ -247,10 +254,10 @@
     <div class="menu-wrapper">
       <nav>
         <a href="#/" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-house"></i> Home</a>
-        <a href="#/branding" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-palette"></i> Branding</a>
+        <!-- <a href="#/branding" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-palette"></i> Branding</a> -->
         <a href="#/interview" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-microphone"></i> Interview</a>
-        <a href="#/news" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-newspaper"></i> News</a>
-        <a href="#/research" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-flask"></i> Research</a>
+        <!-- <a href="#/news" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-newspaper"></i> News</a> -->
+        <!-- <a href="#/research" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-flask"></i> Research</a> -->
         <a href="#/chat" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-comments"></i> Chat</a>
         {#if isLoggedIn}
           <a href="#/" on:click={logout}><i class="fas fa-right-from-bracket"></i> Log Out</a>

@@ -107,24 +107,24 @@
 
 {#if MainMenu}
   <div class="links" style="margin-bottom: 60px">
-    <button on:click={ChangeMenu("usecases")}>
-      <i class="fas fa-bolt"></i> Use Cases
-    </button>
-    <a href="https://t.me/Yeshub_bot" target="_blank">
-      <i class="fab fa-telegram"></i> Bot
+    <a href="#/interview">
+      <i class="fas fa-microphone"></i> Start Interview
     </a>
-    <a href="https://instagram.com/yesvara.ai" target="_blank">
+    <a href="#/chat">
+      <i class="fas fa-comments"></i> Chat
+    </a>
+    <!-- <a href="https://instagram.com/yesvara.ai" target="_blank">
       <i class="fab fa-instagram"></i> Instagram
-    </a>
-    <a href="https://n8n.yesvara.com" target="_blank">
+    </a> -->
+    <!-- <a href="https://n8n.yesvara.com" target="_blank">
       <i class="fas fa-robot"></i> Automation
-    </a>
+    </a> -->
     
 
   </div>
 {/if}
 
-{#if UseCasesMenu}
+<!-- {#if UseCasesMenu}
   <div class="links" style="margin-bottom: 60px">
     <button on:click={ChangeMenu("main")}>
       <i class="fas fa-arrow-left"></i> Back
@@ -146,16 +146,11 @@
     </a>
   </div>
   
-{/if}
+{/if} -->
   
 </div>
 
 
-<div class="chat-input-wrapper" >
-  <a href="#/chat" style="width:98%; margin-left:-15px" >
-    <Chatinput />
-  </a>
-</div>
 
 
 
