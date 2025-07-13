@@ -16,11 +16,11 @@
   let buttonLock=true;
   // Array posisi pekerjaan
   const jobs = [
-    { position: "Account Manager", requirements: "Berpengalaman 2 tahun di B2B sales" },
-    { position: "Digital Marketing", requirements: "Menguasai Digital Ads, SEO, dan SEM" }
+    { id:1, position: "Account Manager", requirements: "Berpengalaman 2 tahun di B2B sales" },
+    { id:2, position: "Digital Marketing", requirements: "Menguasai Digital Ads, SEO, dan SEM" }
   ];
   let syarat = '';
-  let job_position =jobs[0].position;
+  let job_position ='';
 
   let question ="";
 
@@ -58,9 +58,10 @@
   });
 
   function handleJobChange(event) {
-    const selected = jobs.find(j => j.position === event.target.value);
+    const selected = jobs.find(j => j.id === +event.target.value);
     job_position = selected.position;
     syarat = selected.requirements;
+  
   }
 
   function startInterview(){
@@ -274,7 +275,7 @@
       <label for="job">Posisi Pekerjaan:</label><br />
       <select id="job" on:change={handleJobChange}>
         {#each jobs as job}
-          <option value={job.position}>{job.position}</option>
+          <option value={job.id}>{job.position}</option>
         {/each}
       </select>
     </div>
