@@ -33,6 +33,11 @@
   }
 
   onMount(() => {
+    if(!localStorage.getItem('access_token')){
+      alert("Silakan login terlebih dahulu");
+      window.location.href = '/';
+    }
+    name=localStorage.getItem('email');
     if (SpeechRecognition) {
       recognition = new SpeechRecognition();
       recognition.continuous = true;
@@ -57,10 +62,7 @@
   }
 
   function startInterview(){
-    if (!name || name.trim() === '') {
-      alert('Nama harus diisi sebelum memulai interview.');
-      return;
-    }
+    
     nameLocked = true;
     question = "Hi "+name+", salam kenal. Boleh perkenalan dan menceritakan pengalaman anda yang berkaitan dengan "+job_position+"?";
   }
@@ -98,10 +100,7 @@
 
     buttonLock=true;
 
-    if (!name || name.trim() === '') {
-      alert('Nama harus diisi sebelum mengirim.');
-      return;
-    }
+   
 
     const formData = new FormData();
     formData.append('name', name);
@@ -256,13 +255,13 @@
 <div class="container" style="margin-top:20vh">
 {#if !nameLocked}
     <div class="input-nama" >
-      <label for="name">Nama Peserta:</label><br />
+      <label for="name">Email Peserta:</label><br />
       <input
         id="name"
         type="text"
         bind:value={name}
         required
-        disabled={nameLocked}
+        disabled
         style="padding: 0.5rem; border-radius: 8px; border: none; width: 230px; height:40px"
         placeholder="Tuliskan nama Anda disini"
       />
