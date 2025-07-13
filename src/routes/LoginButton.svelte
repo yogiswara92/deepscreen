@@ -1,7 +1,7 @@
 
 <script>
   const client_id = '516678484337-j8mhv39t4h8ehfcseees5dupgcsro2qc.apps.googleusercontent.com';
-  const redirect_uri = 'https://deepscreen.vercel.app/';
+  const redirect_uri = 'https://deepscreen.vercel.app';
   //const redirect_uri = 'https://stackblitz.com/~/github.com/yogiswara92/landing-yesvara';
 
   const loginWithGoogle = () => {
