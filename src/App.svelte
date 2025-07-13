@@ -203,11 +203,11 @@
     background-color: #01212e;
     /* background-color: orange; */
     z-index: 999;
-    padding-top:5px;
-    padding-bottom: 5px;
+    padding-top:10px;
+    padding-bottom: 0px;
     padding-left:20px;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 35px;
+    font-size: 25px;
     
   }
   .header-fixed a{
