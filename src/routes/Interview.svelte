@@ -9,6 +9,7 @@
   let timerInterval: NodeJS.Timer;
   let transcript = '';
   let name = '';
+  let email='';
   let nameLocked = false;
   let isFinished=false;
   let model = "model1";
@@ -37,7 +38,8 @@
       alert("Silakan login terlebih dahulu");
       window.location.href = '/';
     }
-    name=localStorage.getItem('email');
+    name=localStorage.getItem('nama');
+    email=localStorage.getItem('email');
     if (SpeechRecognition) {
       recognition = new SpeechRecognition();
       recognition.continuous = true;
@@ -104,6 +106,7 @@
 
     const formData = new FormData();
     formData.append('name', name);
+    formData.append('email', email);
     formData.append("model", model);
     // formData.append('audio', audioBlob, 'interview.webm');
     formData.append('timestamp', new Date().toISOString());
@@ -255,7 +258,7 @@
 <div class="container" style="margin-top:20vh">
 {#if !nameLocked}
     <div class="input-nama" >
-      <label for="name">Email Peserta:</label><br />
+      <label for="name">Nama Peserta:</label><br />
       <input
         id="name"
         type="text"
