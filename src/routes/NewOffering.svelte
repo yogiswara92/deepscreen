@@ -56,17 +56,11 @@
   
   <style>
     .form-container {
-      max-width: 600px;
+        width:100%;
+      max-width: 800px;
+      /* width:100%; */
       margin: auto;
       padding: 2rem;
-    }
-  
-    input, textarea, select {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      border: none;
     }
   
     button {
@@ -76,11 +70,18 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      width:100%;
+      max-width:700px;
     }
   
     button:disabled {
       background-color: #666;
       cursor: not-allowed;
+    }
+
+    input, textarea, select{
+        width:90%;
+        max-width:700px;
     }
   
     .row {
@@ -101,32 +102,38 @@
   <div class="form-container">
     <h2 style="margin-top:50px">New Job Offering</h2>
   
-    <label>Position Name:</label>
-    <input type="text" bind:value={position} placeholder="Position Name" required />
-  
-    <label>Requirement:</label>
-    <textarea rows="4" bind:value={requirement} placeholder="Job Requirement" required></textarea>
-  
-    <label>Description:</label>
-    <textarea rows="4" bind:value={description} placeholder="Job Description" required></textarea>
-  
-    <div class="row">
-      <div style="margin-right:10px">
-        <label>Start Date:</label>
+    <div>
+        <label>Position Name:</label> <br />
+        <input type="text" bind:value={position} placeholder="Position Name" required />
+    </div>
+
+    <div>
+        <label>Requirement:</label> <br />
+        <textarea rows="4" bind:value={requirement} placeholder="Job Requirement" required></textarea>
+    </div>
+
+    <div>
+        <label>Description:</label> <br />
+        <textarea rows="4" bind:value={description} placeholder="Job Description" required></textarea>
+    </div>
+    
+    <!-- <div class="row"> -->
+      <div > 
+        <label>Start Date:</label><br />
         <input type="date" bind:value={start_date} required />
       </div>
-      <div style="margin-right:10px">
-        <label>End Date:</label>
+      <div >
+        <label>End Date:</label><br />
         <input type="date" bind:value={end_date} required />
       </div>
       <div>
-        <label>Is Active:</label>
+        <label>Is Active:</label> <br />
         <select bind:value={is_active}>
           <option value="1">Yes</option>
           <option value="0">No</option>
         </select>
       </div>
-    </div>
+    <!-- </div> -->
   
     <!-- <label>Image Upload:</label>
     <input type="file" accept="image/*" on:change={handleFileChange} required /> -->

@@ -31,12 +31,7 @@
   </script>
   
   <style>
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-    }
-  
+   
     .card {
       background: #ffffff10;
       padding: 1rem;
@@ -45,8 +40,8 @@
       margin-top:0.5rem;
       margin-bottom: 0.5rem;
       cursor: pointer;
-      width:400px;
-      max-width:99%
+      width:80vw;
+      max-width:400px;
     }
   
     .card:hover {

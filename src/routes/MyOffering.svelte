@@ -31,11 +31,7 @@
   </script>
   
   <style>
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-    }
+  
   
     .card {
       background: #ffffff10;
@@ -45,8 +41,8 @@
       margin-top:0.5rem;
       margin-bottom: 0.5rem;
       cursor: pointer;
-      width:400px;
-      max-width:99%
+      width:80vw;
+      max-width:400px;
     }
   
     .card:hover {
@@ -62,7 +58,7 @@
     <h2 style="margin-top:50px">My Job Offerings</h2>
   
     <a href="#/newoffering"  >
-      <button style="width:400px;max-width:99%">➕ Submit New Offering</button>
+      <button style="width:80vw;max-width:400px">➕ Submit New Offering</button>
     </a>
   
     {#if loading}

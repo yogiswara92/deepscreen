@@ -82,7 +82,6 @@
 
 <style>
   .container {
-    max-width: 600px;
     margin: auto;
     padding: 2rem;
     margin-top: 30px;
