@@ -64,7 +64,8 @@
       {#each offerings as job}
         <div class="card" on:click={() => goToDetail(job.id)}>
           <b>{job.nama_posisi}</b>
-          <p style="font-size:10px">{job.deskripsi}</p>
+          <p style="font-size:10px; margin-top:0px"><i>End date: {job.end_date}</i> <br><br>
+            {job.deskripsi}</p>
         </div>
       {/each}
     {/if}

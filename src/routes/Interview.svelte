@@ -52,7 +52,7 @@
       job_position= data[0].nama_posisi; 
       syarat= data[0].syarat; 
       deskripsi=data[0].deskripsi;
-      // console.log(data[0]);
+      //  console.log(data[0]);
     }   
 
     if (SpeechRecognition) {
@@ -144,7 +144,7 @@
     const data = await res.json();
 
     if (data){
-      console.log("response:", data);
+      // console.log("response:", data);
     }
     // ✅ Update pertanyaan berikutnya
     const nextQuestion = data[0]?.next_question;
@@ -271,54 +271,55 @@
   }
 </style>
 
-<div class="container" style="margin-top:20vh">
+<div class="container" style="margin-top:30px ">
 {#if !nameLocked}
-    <div class="input-nama" >
-      <label for="name">Nama Peserta:</label><br />
-      <input
-        id="name"
-        type="text"
-        bind:value={name}
-        required
-        style="padding: 0.5rem; border-radius: 8px; border: none; width: 230px; height:40px"
-        placeholder="Tuliskan nama Anda disini"
-      />
-    </div>
-    <!-- Pilih Pekerjaan -->
-    <div >
-      <label for="job">Posisi Pekerjaan:</label><br />
-      <!-- <select id="job" on:change={handleJobChange}>
-        {#each jobs as job}
-          <option value={job.id}>{job.position}</option>
-        {/each}
-      </select> -->
-      <input
-        id="job"
-        type="text"
-        bind:value={job_position}
-        required
-        disabled
-        style="padding: 0.5rem; border-radius: 8px; border: none; width: 230px; height:40px"
-      />
-    </div>
-    <!-- FORM SELECT MODEL -->
-    <div class="form-model" >
-      <!-- <label for="model"> Model:</label><br /> -->
-      <!-- <select id="model" bind:value={model}>
-        <option value="model1">Model 1</option>
-        <option value="model2">Model 2</option>
-      </select> -->
-    </div>
-    <br />
-    <div class="controls">      
-      <button on:click={startInterview} style="width:200px" >
-        <i class="fas fa-paper-plane"></i> Mulai Interview
-      </button>
-    </div>
-    
+   
+    <h2>Interview Session</h2>
+
+    {#if job_position}
+      <div style="text-align: justify; width:100%">
+        <u><b>Job Position:</b></u>
+        {job_position}
+      </div>
+      
+      <br>
+      
+      <div style="text-align: justify">
+        <u><b>Job Description:</b></u>
+        <div style="white-space: pre-line;">{deskripsi}</div>
+      </div>
+      <br>
+
+      <div style="text-align: justify">
+        <u><b>Job Requirement:</b></u>
+        <div style="white-space: pre-line;">{syarat}</div>
+      </div>
+
+      <br>
+
+      <div class="input-nama" >
+        <label for="name">Your Name:</label><br />
+        <input
+          id="name"
+          type="text"
+          bind:value={name}
+          required
+          style="padding: 0.5rem; border-radius: 8px; border: none; width: 230px; height:40px"
+          placeholder="Tuliskan nama Anda disini"
+        />
+      </div>
+
+      <div class="controls">      
+        <button on:click={startInterview} style="width:250px; margin-top:10px; padding-left:60px" >
+          <i class="fas fa-paper-plane"></i> Start Interview
+        </button>
+      </div>
+    {:else}
+      <i>Loading data..</i>
+    {/if}
   {:else}
 
-  <div class="question">    
+  <div class="question" style="margin-top:10vh">    
     {question}
   </div>
 
