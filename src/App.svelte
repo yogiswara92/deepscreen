@@ -2,19 +2,19 @@
   import Router from 'svelte-spa-router';
   import LoginButton from './routes/LoginButton.svelte';
   import Home from './routes/Home.svelte';
-  import Branding from './routes/Branding.svelte';
   import Interview from './routes/Interview.svelte';
-  import News from './routes/News.svelte';
-  import Research from './routes/Research.svelte';
+  import MyOffering from './routes/MyOffering.svelte';
+  import NewOffering from './routes/NewOffering.svelte';
+  import EditOffering from './routes/EditOffering.svelte';
   import Chat from './routes/Chat.svelte';
   import { onMount } from 'svelte';
 
   const routes = {
     '/': Home,
-    '/branding': Branding,
     '/interview': Interview,
-    '/news': News,
-    '/research': Research,
+    '/myoffering': MyOffering,
+    '/newoffering': NewOffering,
+    '/editoffering/:id': EditOffering,
     '/chat': Chat
   };
 
@@ -29,10 +29,13 @@
     const accessToken = hash.get("access_token");
 
     // Khusus testing:
-      // nama = "Yogiswara Gheartha";
-      // email="tesyogiswaragheartha@gmail.com";
-      // localStorage.setItem("nama", nama);
-      // localStorage.setItem("email", email);
+      nama = "Yogiswara Gheartha";
+      email="yogiswaragheartha@gmail.com";
+      foto="https://lh3.googleusercontent.com/a/ACg8ocJpQx7WYWDxwzWFagnGehjnCErnqARZ4rzLH95_WHZ92TDRulUc8g=s96-c";
+      localStorage.setItem("access_token", "tes");
+      localStorage.setItem("nama", nama);
+      localStorage.setItem("email", email);
+      localStorage.setItem("foto", foto);
     // -------------
 
     //email="yogiswaragheartha@gmail.com";
@@ -254,7 +257,7 @@
     <div class="menu-wrapper">
       <nav>
         <a href="#/" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-house"></i> Home</a>
-        <!-- <a href="#/branding" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-palette"></i> Branding</a> -->
+        <a href="#/myoffering" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-palette"></i> My Offering</a>
         <a href="#/interview" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-microphone"></i> Interview</a>
         <!-- <a href="#/news" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-newspaper"></i> News</a> -->
         <!-- <a href="#/research" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-flask"></i> Research</a> -->

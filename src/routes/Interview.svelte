@@ -19,8 +19,9 @@
     { id:1, position: "Account Manager", requirements: "Berpengalaman 2 tahun di B2B sales" },
     { id:2, position: "Digital Marketing", requirements: "Menguasai Digital Ads, SEO, dan SEM" }
   ];
-  let syarat = '';
-  let job_position ='';
+  let syarat = jobs[0].requirements;
+  let job_position =jobs[0].position;
+  let id_posisi=jobs[0].id;
 
   let question ="";
 
@@ -61,6 +62,7 @@
     const selected = jobs.find(j => j.id === +event.target.value);
     job_position = selected.position;
     syarat = selected.requirements;
+    id_posisi = selected.id;
   
   }
 
@@ -104,7 +106,6 @@
     buttonLock=true;
 
    
-
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
@@ -115,10 +116,11 @@
     formData.append('transcript', transcript);
     formData.append('syarat', syarat);
     formData.append('job_position', job_position);
-
+    formData.append('id_posisi', id_posisi);
+    
     //production: https://n8n.yesvara.com/webhook/interview-submit
     //testing: https://n8n.yesvara.com/webhook-test/interview-submit
-    const res=await fetch('https://n8n.yesvara.com/webhook/interview-submit', {
+    const res=await fetch('https://n8n.yesvara.com/webhook-test/4496e7a3-873e-4091-aec4-ef28174c49a8', {
       method: 'POST',
       body: formData
     });
