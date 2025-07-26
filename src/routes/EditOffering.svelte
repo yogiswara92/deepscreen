@@ -8,7 +8,10 @@
     nama_posisi: '',
     syarat: '',
     deskripsi: '',
-    banner_url: ''
+    banner_url: '',
+    start_date: '',
+    end_date: '',
+    is_active: '1'
   };
   let loading = true;
   let saving = false;
@@ -28,6 +31,7 @@
     if (res.ok) {
       const data = await res.json();
       offering = data[0];
+      offering.is_active = String(offering.is_active);
     }
     loading = false;
   });
@@ -78,10 +82,18 @@
 
 <style>
   .container {
-    max-width: 800px;
+    max-width: 600px;
     margin: auto;
     padding: 2rem;
-    margin-top:20px;
+    margin-top: 30px;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: none;
   }
 
   button {
@@ -93,6 +105,18 @@
     background-color: #666;
     cursor: not-allowed;
   }
+
+  .row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .row > div {
+    flex: 1 1 150px;
+    min-width: 150px;
+  }
 </style>
 
 <div class="container">
@@ -101,17 +125,35 @@
   {#if loading}
     <p>Loading...</p>
   {:else}
-    <label>Nama Posisi:</label>
+    <label>Position Name:</label>
     <input type="text" bind:value={offering.nama_posisi} />
 
-    <label>Syarat:</label>
+    <label>Requirement:</label>
     <textarea rows="4" bind:value={offering.syarat}></textarea>
 
-    <label>Deskripsi:</label>
+    <label>Description:</label>
     <textarea rows="4" bind:value={offering.deskripsi}></textarea>
 
-    <label>Banner URL:</label>
-    <input type="text" bind:value={offering.banner_url} />
+    <div class="row">
+      <div style="margin-right:10px">
+        <label>Start Date:</label>
+        <input type="date" bind:value={offering.start_date} />
+      </div>
+      <div style="margin-right:10px">
+        <label>End Date:</label>
+        <input type="date" bind:value={offering.end_date} />
+      </div>
+      <div>
+        <label>Is Active:</label>
+        <select bind:value={offering.is_active}>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- <label>Banner URL:</label>
+    <input type="text" bind:value={offering.banner_url} /> -->
 
     <div style="margin-top: 1rem">
       <button on:click={saveChanges} disabled={saving}>

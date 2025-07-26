@@ -1,6 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  export let params;
+
+  let id = '';
+
   let recording = false;
   let mediaRecorder: MediaRecorder;
   let audioChunks: Blob[] = [];
@@ -15,13 +19,11 @@
   let model = "model1";
   let buttonLock=true;
   // Array posisi pekerjaan
-  const jobs = [
-    { id:1, position: "Account Manager", requirements: "Berpengalaman 2 tahun di B2B sales" },
-    { id:2, position: "Digital Marketing", requirements: "Menguasai Digital Ads, SEO, dan SEM" }
-  ];
-  let syarat = jobs[0].requirements;
-  let job_position =jobs[0].position;
-  let id_posisi=jobs[0].id;
+  const jobs = { id:0, position: "", requirements: "", description:"" };
+  let syarat = jobs.requirements;
+  let job_position =jobs.position;
+  let id_posisi=jobs.id;
+  let deskripsi="";
 
   let question ="";
 
@@ -34,13 +36,25 @@
     textareaEl.scrollTop = textareaEl.scrollHeight;
   }
 
-  onMount(() => {
+  onMount(async () => {
     if(!localStorage.getItem('access_token')){
-      alert("Silakan login terlebih dahulu");
+      alert("Please login first");
       window.location.href = '/';
     }
+    id = params.id;
     name=localStorage.getItem('nama');
     email=localStorage.getItem('email');
+
+    const res = await fetch(`https://n8n.yesvara.com/webhook/ds-detail-offering?id=${id}`);
+    if (res.ok) {
+      const data = await res.json();
+      id_posisi = data[0].id;
+      job_position= data[0].nama_posisi; 
+      syarat= data[0].syarat; 
+      deskripsi=data[0].deskripsi;
+      // console.log(data[0]);
+    }   
+
     if (SpeechRecognition) {
       recognition = new SpeechRecognition();
       recognition.continuous = true;
@@ -105,7 +119,6 @@
 
     buttonLock=true;
 
-   
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
@@ -116,11 +129,11 @@
     formData.append('transcript', transcript);
     formData.append('syarat', syarat);
     formData.append('job_position', job_position);
-    formData.append('id_posisi', id_posisi);
+    formData.append('id_posisi', id);
     
     //production: https://n8n.yesvara.com/webhook/interview-submit
     //testing: https://n8n.yesvara.com/webhook-test/interview-submit
-    const res=await fetch('https://n8n.yesvara.com/webhook-test/4496e7a3-873e-4091-aec4-ef28174c49a8', {
+    const res=await fetch('https://n8n.yesvara.com/webhook/ds-interview', {
       method: 'POST',
       body: formData
     });
@@ -139,7 +152,7 @@
     if (nextQuestion) {
       question = nextQuestion; 
       buttonLock=true;
-      console.log("next_question:", data[0]?.next_question);
+      // console.log("next_question:", data[0]?.next_question);
       transcript='';
     }
 
@@ -267,7 +280,6 @@
         type="text"
         bind:value={name}
         required
-        disabled
         style="padding: 0.5rem; border-radius: 8px; border: none; width: 230px; height:40px"
         placeholder="Tuliskan nama Anda disini"
       />
@@ -275,19 +287,27 @@
     <!-- Pilih Pekerjaan -->
     <div >
       <label for="job">Posisi Pekerjaan:</label><br />
-      <select id="job" on:change={handleJobChange}>
+      <!-- <select id="job" on:change={handleJobChange}>
         {#each jobs as job}
           <option value={job.id}>{job.position}</option>
         {/each}
-      </select>
+      </select> -->
+      <input
+        id="job"
+        type="text"
+        bind:value={job_position}
+        required
+        disabled
+        style="padding: 0.5rem; border-radius: 8px; border: none; width: 230px; height:40px"
+      />
     </div>
     <!-- FORM SELECT MODEL -->
     <div class="form-model" >
-      <label for="model">Pilih Model:</label><br />
-      <select id="model" bind:value={model}>
+      <!-- <label for="model"> Model:</label><br /> -->
+      <!-- <select id="model" bind:value={model}>
         <option value="model1">Model 1</option>
         <option value="model2">Model 2</option>
-      </select>
+      </select> -->
     </div>
     <br />
     <div class="controls">      

@@ -6,15 +6,17 @@
   import MyOffering from './routes/MyOffering.svelte';
   import NewOffering from './routes/NewOffering.svelte';
   import EditOffering from './routes/EditOffering.svelte';
+  import AllOffering from './routes/AllOffering.svelte';
   import Chat from './routes/Chat.svelte';
   import { onMount } from 'svelte';
 
   const routes = {
     '/': Home,
-    '/interview': Interview,
+    '/interview/:id': Interview,
     '/myoffering': MyOffering,
     '/newoffering': NewOffering,
     '/editoffering/:id': EditOffering,
+    '/alloffering': AllOffering,
     '/chat': Chat
   };
 
@@ -258,7 +260,7 @@
       <nav>
         <a href="#/" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-house"></i> Home</a>
         <a href="#/myoffering" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-palette"></i> My Offering</a>
-        <a href="#/interview" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-microphone"></i> Interview</a>
+        <a href="#/alloffering" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-microphone"></i> Interview</a>
         <!-- <a href="#/news" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-newspaper"></i> News</a> -->
         <!-- <a href="#/research" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-flask"></i> Research</a> -->
         <a href="#/chat" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-comments"></i> Chat</a>

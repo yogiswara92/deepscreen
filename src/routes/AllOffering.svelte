@@ -14,7 +14,7 @@
         return;
       }
   
-      const res = await fetch(`https://n8n.yesvara.com/webhook/ds-my-offering?email=${encodeURIComponent(email)}`);
+      const res = await fetch(`https://n8n.yesvara.com/webhook/ds-get-all-offering`);
       if (res.ok) {
         offerings = await res.json();
         // console.log(offerings);
@@ -25,7 +25,7 @@
     });
   
     function goToDetail(id: string) {
-        location.hash = `/editoffering/${id}`;
+        location.hash = `/interview/${id}`;
     }
   
   </script>
@@ -59,11 +59,7 @@
   </style>
   
   <div class="container">
-    <h2 style="margin-top:50px">My Job Offerings</h2>
-  
-    <a href="#/newoffering"  >
-      <button style="width:400px;max-width:99%">➕ Submit New Offering</button>
-    </a>
+    <h2 style="margin-top:50px">Available Session</h2>
   
     {#if loading}
       <p>Loading...</p>

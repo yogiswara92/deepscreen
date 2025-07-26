@@ -107,7 +107,7 @@
 
 {#if MainMenu}
   <div class="links" style="margin-bottom: 60px">
-    <a href="#/interview">
+    <a href="#/alloffering">
       <i class="fas fa-microphone"></i> Start Interview
     </a>
     <a href="#/chat">
