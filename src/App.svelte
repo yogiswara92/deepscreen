@@ -29,13 +29,13 @@
     const accessToken = hash.get("access_token");
 
     // Khusus testing:
-      nama = "Yogiswara Gheartha";
-      email="yogiswaragheartha@gmail.com";
-      foto="https://lh3.googleusercontent.com/a/ACg8ocJpQx7WYWDxwzWFagnGehjnCErnqARZ4rzLH95_WHZ92TDRulUc8g=s96-c";
-      localStorage.setItem("access_token", "tes");
-      localStorage.setItem("nama", nama);
-      localStorage.setItem("email", email);
-      localStorage.setItem("foto", foto);
+      // nama = "Yogiswara Gheartha";
+      // email="yogiswaragheartha@gmail.com";
+      // foto="https://lh3.googleusercontent.com/a/ACg8ocJpQx7WYWDxwzWFagnGehjnCErnqARZ4rzLH95_WHZ92TDRulUc8g=s96-c";
+      // localStorage.setItem("access_token", "tes");
+      // localStorage.setItem("nama", nama);
+      // localStorage.setItem("email", email);
+      // localStorage.setItem("foto", foto);
     // -------------
 
     //email="yogiswaragheartha@gmail.com";

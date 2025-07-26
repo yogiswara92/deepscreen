@@ -51,6 +51,7 @@
 
     if (res.ok) {
       alert('Offering berhasil diperbarui!');
+      location.hash = `/myoffering`;
     } else {
       alert('Gagal memperbarui offering.');
     }
