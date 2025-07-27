@@ -263,10 +263,10 @@
     <div class="menu-wrapper">
       <nav>
         <a href="#/" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-house"></i> Home</a>
-        <a href="#/myoffering" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-palette"></i> My Offering</a>
-        <a href="#/alloffering" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-microphone"></i> Interview</a>
-        <!-- <a href="#/news" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-newspaper"></i> News</a> -->
-        <!-- <a href="#/research" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-flask"></i> Research</a> -->
+        {#if isLoggedIn}
+          <a href="#/myoffering" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-palette"></i> My Offering</a>
+          <a href="#/alloffering" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-microphone"></i> Interview</a>
+        {/if}
         <a href="#/chat" on:click={() => window.innerWidth < 768 && (sidebarOpen = false)}><i class="fas fa-comments"></i> Chat</a>
         {#if isLoggedIn}
           <a href="#/" on:click={logout}><i class="fas fa-right-from-bracket"></i> Log Out</a>

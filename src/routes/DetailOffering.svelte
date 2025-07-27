@@ -105,7 +105,7 @@
   
       <hr />
       <h3>Interview Results</h3>
-      {#if participants.length === 0}
+      {#if !participants[0].id }
         <p>No participants have completed the interview yet.</p>
       {:else}
         <table class="participant-table">

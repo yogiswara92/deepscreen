@@ -284,13 +284,13 @@
       
       <br>
       
-      <div style="text-align: justify">
+      <div style="text-align: justify; width:100%">
         <u><b>Job Description:</b></u>
         <div style="white-space: pre-line;">{deskripsi}</div>
       </div>
       <br>
 
-      <div style="text-align: justify">
+      <div style="text-align: justify; width:100%">
         <u><b>Job Requirement:</b></u>
         <div style="white-space: pre-line;">{syarat}</div>
       </div>
