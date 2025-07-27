@@ -7,6 +7,8 @@
   import NewOffering from './routes/NewOffering.svelte';
   import EditOffering from './routes/EditOffering.svelte';
   import AllOffering from './routes/AllOffering.svelte';
+  import DetailOffering from './routes/DetailOffering.svelte';
+  import DetailSession from './routes/DetailSession.svelte';
   import Chat from './routes/Chat.svelte';
   import { onMount } from 'svelte';
 
@@ -17,6 +19,8 @@
     '/newoffering': NewOffering,
     '/editoffering/:id': EditOffering,
     '/alloffering': AllOffering,
+    '/detailoffering/:id':DetailOffering,
+    '/detailsession/:id/:position/:email':DetailSession,
     '/chat': Chat
   };
 
@@ -31,13 +35,13 @@
     const accessToken = hash.get("access_token");
 
     // Khusus testing:
-      // nama = "Yogiswara Gheartha";
-      // email="yogiswaragheartha@gmail.com";
-      // foto="https://lh3.googleusercontent.com/a/ACg8ocJpQx7WYWDxwzWFagnGehjnCErnqARZ4rzLH95_WHZ92TDRulUc8g=s96-c";
-      // localStorage.setItem("access_token", "tes");
-      // localStorage.setItem("nama", nama);
-      // localStorage.setItem("email", email);
-      // localStorage.setItem("foto", foto);
+      nama = "Yogiswara Gheartha";
+      email="yogiswaragheartha@gmail.com";
+      foto="https://lh3.googleusercontent.com/a/ACg8ocJpQx7WYWDxwzWFagnGehjnCErnqARZ4rzLH95_WHZ92TDRulUc8g=s96-c";
+      localStorage.setItem("access_token", "tes");
+      localStorage.setItem("nama", nama);
+      localStorage.setItem("email", email);
+      localStorage.setItem("foto", foto);
     // -------------
 
     //email="yogiswaragheartha@gmail.com";

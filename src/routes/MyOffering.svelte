@@ -25,7 +25,7 @@
     });
   
     function goToDetail(id: string) {
-        location.hash = `/editoffering/${id}`;
+        location.hash = `/detailoffering/${id}`;
     }
   
   </script>
