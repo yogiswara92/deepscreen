@@ -185,13 +185,14 @@
   }
 
   async function submitToN8n(message) {
+    const LLM="yes-lite";
     const res = await fetch('https://n8n.yesvara.com/webhook/b1fb10c2-a566-4266-93f8-b62710af7fbb', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'auth': `${import.meta.env.VITE_YESVARA_AUTH}`
       },
-      body: JSON.stringify({ message, credential, nama, prev_message: messages.slice(-20)  })
+      body: JSON.stringify({ message, credential, nama, LLM, prev_message: messages.slice(-10)  })
     });
 
     if (res) {
