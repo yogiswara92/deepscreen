@@ -3,6 +3,7 @@
   import LoginButton from './routes/LoginButton.svelte';
   import Home from './routes/Home.svelte';
   import Interview from './routes/Interview.svelte';
+  import InterviewVideo from './routes/InterviewVideo.svelte';
   import MyOffering from './routes/MyOffering.svelte';
   import NewOffering from './routes/NewOffering.svelte';
   import EditOffering from './routes/EditOffering.svelte';
@@ -15,6 +16,7 @@
   const routes = {
     '/': Home,
     '/interview/:id': Interview,
+    '/videointerview/:id': InterviewVideo,
     '/myoffering': MyOffering,
     '/newoffering': NewOffering,
     '/editoffering/:id': EditOffering,
